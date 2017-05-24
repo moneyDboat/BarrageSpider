@@ -58,8 +58,7 @@ def keeplive():
 
 def start(roomid):
 	# login 
-	msg = 'type@=loginreq/username@=喊我船长/password@=DouyuQian3519/roomid@={}/\x00'.format(roomid)
-	print(msg)
+	msg = 'type@=loginreq/roomid@={}/\x00'.format(roomid)
 	sendmsg(msg)
 	print(client.recv(1024))
 	print('login succeed')
