@@ -85,7 +85,6 @@ def start(roomid):
                     msg = data_list[i].decode()
                     print("lv:" + level + ">>>>>>" + uid + ":" + msg)
                     f.write("%s:%s:%s" % (level, msg, uid))
-                    print("%s:%s:%s" % (level, msg, uid))
                     f.write('\n')
                 except KeyboardInterrupt:
                     f.close()
@@ -96,7 +95,8 @@ def start(roomid):
 
 
 if __name__ == '__main__':
-    room_id = input('please enter the room id: \n')
+    # room_id = input('please enter the room id: \n')
+    room_id = '606118'
     p1 = multiprocessing.Process(target=start, args=(room_id,))
     p2 = multiprocessing.Process(target=keeplive)
     p1.start()

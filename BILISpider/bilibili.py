@@ -47,7 +47,7 @@ class BISpider(object):
 
     def set_url(self, url):
         html = self.gzip_url(url)
-        # f = open('html.txt', 'wb')
+        # f = open('data/html.txt', 'wb')
         # f.write(html)
         # f.close()
         print('视频页面 gzip解压完成...')
@@ -72,15 +72,15 @@ class BISpider(object):
         data = self.gzip_url(documents_url)
         print("弹幕页面解压完成...")
         if self.xml:
-            fd = open(self.output + '.xml', 'w')
+            fd = open('data/' + self.output + '.xml', 'w')
             fd.write(data)
             fd.close()
             print(self.output + '.xml写入完成')
 
         soup = BeautifulSoup(data, self.parser)
         documents = soup.find_all('d')
-        fw = open(self.output + '.txt', 'a')
-        fwpure = open('pure.txt', 'a')
+        fw = open('data/' + self.output + '.txt', 'a')
+        fwpure = open('data/pure.txt', 'a')
 
         print("写入弹幕ing...")
         for document in documents:
